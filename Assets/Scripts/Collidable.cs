@@ -8,15 +8,21 @@ public class Collidable : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Collider2D[] hits = new Collider2D[100];
 
+   
+
     protected virtual void Start()
     {
         Debug.Log("started");
         boxCollider = GetComponent<BoxCollider2D>();
+
+        
     }
 
     protected virtual void Update()
     {
         //collision work
+        if (boxCollider == null)
+            Debug.Log("CULPRIT FOUND BOX COLLIDER");
         boxCollider.OverlapCollider(filter, hits);
         for (int i = 0; i < hits.Length; i++)
         {

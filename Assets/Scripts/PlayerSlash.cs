@@ -37,6 +37,7 @@ public class PlayerSlash : MonoBehaviour
         if (anim != null) 
         {
             anim.SetTrigger("side_slash");
+            anim.SetTrigger("slash");
         }
    }
 }

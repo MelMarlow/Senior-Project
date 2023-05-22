@@ -8,30 +8,38 @@ public class Reaper : Collectable
     private bool isShown = false;
     private bool seen = false;
 
-    private void Start()
-    {
-       anim = GetComponent<Animator>(); 
-    }
+    
+        
 
     protected override void OnCollide(Collider2D coll)
     {
+        Debug.Log("IMPLEMENTED ON COLLIDE");
         
-            if(!isShown && !seen) 
-            {
-                seen = true;
+        
 
+            //if(isShown == false && seen == false) 
+            {
+                Debug.Log("WAS ACTIVATED");
+                
+                anim = GetComponent<Animator>();
                 if(anim != null)
                 {
-                    anim.SetTrigger("BumpReaper");
-                    isShown = true;
-                    Time.timeScale = 0;
+                    
+                    if (anim == null)
+                        Debug.Log("anim is null");
 
+                    Debug.Log("Triggered!!!!!!!!!!!!!!!!!!!!!!!!");
+                    anim.SetTrigger("bumpReaper");
+                    isShown = true;
+                    //Time.timeScale = 0;
+                    seen = true;
+                    Debug.Log("Done");
                     
                 }
                     
             }
-            
-                else if (Input.GetKeyDown(KeyCode.Escape))
+            /*
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     if(anim != null)
                     {
@@ -40,6 +48,9 @@ public class Reaper : Collectable
                         Time.timeScale = 1;
                     }
                 }
-        
+            */
+
+
+            
     }   
 }
